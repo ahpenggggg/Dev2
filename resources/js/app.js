@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('add-remove', require('./components/addremove.vue'));
+Vue.component('add-inventory', require('./components/addInventory.vue'));
 
 const app = new Vue({
     el: '#app'

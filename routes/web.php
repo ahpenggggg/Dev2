@@ -15,32 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/addItem', function (){
-  return view('pages.addItem');
-});
-
-Route::get('/editRecord', function(){
-  return view('pages.editRecord');
-});
-
-Route::get('/displaySales', function(){
-  return view('pages.displaySales');
-});
-
-Route::get('/addInventory', function(){
-  return view('pages.addInventory');
-});
-
-Route::get('/displayInventory', function(){
-  return view('pages.displayInventory');
-});
-
-
-Auth::routes();
-
 Route::get('/pages/addItem', 'pagesController@item')->name('addItem');
 Route::get('/pages/editRecord', 'pagesController@edit')->name('editRecord');
 Route::get('/pages/displaySales', 'pagesController@dSales')->name('displaySales');
 Route::get('/pages/addInventory', 'pagesController@addInventory')->name('addInventory');
 Route::get('/pages/displayInventory', 'pagesController@displayInventory')->name('displayInventory');
+
+Route::resource('pages', 'pagesController');
+
+Route::resource('Sales', 'SalesController');
+
+// Route::get('inventories', 'InventoriesController@create');
+// Route::post('inventories', 'InventoriesController@store');
+Route::resource('inventories', 'InventoriesController');
+
+
+Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');

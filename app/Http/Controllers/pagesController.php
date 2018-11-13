@@ -10,7 +10,6 @@ class pagesController extends Controller
       return view ('pages.addItem');
     }
 
-
   public function edit() {
       return view ('pages.editRecord');
   }
@@ -26,4 +25,6 @@ class pagesController extends Controller
   public function displayInventory(){
       return view('pages.displayInventory');
   }
+
+
 }
