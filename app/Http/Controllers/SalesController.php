@@ -14,11 +14,17 @@ class SalesController extends Controller
     $req->validate([
       'itemID' => 'required',
     ]);
+    //
+    // $sales = new Sales;
+    // $sales->itemID = Input::get('itemID[]');
+    // $sales->save();
 
+    foreach (Input::get('itemID') as $itemID) {
     $sales = new Sales;
-    $sales->itemID = Input::get('itemID');
+    $sales->itemID = $itemID;
     $sales->save();
+    }
 
-    return Input::all();
+    return view('pages.displaySales');
   }
 }

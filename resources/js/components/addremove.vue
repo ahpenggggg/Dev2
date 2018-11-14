@@ -15,7 +15,7 @@
 
                     <div class="form-inline" v-for="(item, index) of items">
 
-                      <input class="form-control mt-2 col-5" placeholder="Item ID" name="itemID" maxlength="12"  v-model="item.itemID">
+                      <input class="form-control mt-2 col-5" placeholder="Item ID" name="itemID[]" maxlength="12"  v-model="item.id">
 
                       <button class="btn btn-success ml-1 mr-1 mt-2" @click.prevent="deleteSales(index)">
                         -
@@ -37,10 +37,12 @@
   export default {
     data () {
         return {
-        items: [{id:''}],
-        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-
+        csrf: null,
+        items: [{id:''}]
       }
+    },
+    mounted(){
+      this.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     },
     methods: {
       addSale() {
