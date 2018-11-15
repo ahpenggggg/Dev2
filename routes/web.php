@@ -21,6 +21,7 @@ Route::get('/pages/displaySales', 'pagesController@dSales')->name('displaySales'
 Route::get('/pages/addInventory', 'pagesController@addInventory')->name('addInventory');
 Route::get('/pages/displayInventory', 'pagesController@displayInventory')->name('displayInventory');
 
+
 Route::resource('pages', 'pagesController');
 
 Route::resource('Sales', 'SalesController');
@@ -33,3 +34,5 @@ Route::resource('inventories', 'InventoriesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('items', 'ExportController@index');
+Route::get('items/export', 'ExportController@export');
