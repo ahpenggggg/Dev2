@@ -35,17 +35,41 @@ class InventoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        $inventories = new Inventory;
-        $inventories->itemID = Input::get('itemID');
-        $inventories->inventoryName = Input::get('inventoryName');
-        $inventories->inventoryPrice = Input::get('inventoryPrice');
-        $inventories->inventoryDesc = Input::get('inventoryDesc');
-        $inventories->inventoryAmount = Input::get('inventoryAmount');
-        $inventories->save();
+          $req->validate([
+          'inventoryName' => 'required',
+          'itemID' => 'required',
+          'inventoryPrice' => 'required',
+          'inventoryDesc' => 'required',
+          'inventoryAmount' => 'required',
+        ]);
 
-        return Input::all();
+        for ($i=0; $i < count($req['itemID']) ; $i++ ) {
+          $inventories = new Inventory;
+          $inventories->itemID = $req['itemID'][$i];
+          $inventories->inventoryName = $req['inventoryName'][$i];
+          $inventories->inventoryPrice = $req['inventoryPrice'][$i];
+          $inventories->inventoryDesc = $req['inventoryDesc'][$i];
+          $inventories->inventoryAmount = $req['inventoryAmount'][$i];
+          $inventories->save();
+        };
+
+        // foreach ($req->all() as $all) {
+        // $inventories = new Inventory;
+        // // dd($req->all());
+        // $inventories->itemID = $req['itemID[]'];
+        // $inventories->inventoryName = $req['inventoryName[]'];
+        // $inventories->inventoryPrice = $req['inventoryPrice[]'];
+        // $inventories->inventoryDesc = $req['inventoryDesc[]'];
+        // $inventories->inventoryAmount = $req['inventoryAmount[]'];
+        // $inventories->save();
+        // }
+
+        // $inventories = new Inventory($req->all());
+        // $inventories->save()->all();
+
+        dd($req->all());
     }
 
     /**

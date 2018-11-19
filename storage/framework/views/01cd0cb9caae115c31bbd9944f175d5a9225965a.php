@@ -19,7 +19,7 @@
                 </div>
             </div> -->
 
-            <div class="blocks">
+            <!--div class="blocks">
               <ul id="homeblocks">
                 <li id="salesRecord" ><a href="<?php echo e(route('addItem')); ?>">Add/Remove Sales Record</a></li>
                 <li id="editRecord"><a href="<?php echo e(route('editRecord')); ?>">Edit Sales Record</a></li>
@@ -27,6 +27,14 @@
                 <li id="inventoryRecord"><a href="<?php echo e(route('addInventory')); ?>">Add/Remove Inventory</a></li>
                 <li id="displayInventory"><a href="<?php echo e(route('displayInventory')); ?>">Display Inventory</a></li>
               </ul>
+            </div -->
+
+            <div class="wrapper">
+            <button class="navbuttons navbutton1" onclick="location.href='<?php echo e(route('addItem')); ?>'">Add/Remove Sales Record</a></button>
+            <button class="navbuttons navbutton2" onclick="location.href='<?php echo e(route('editRecord')); ?>'">Edit Sales Record</a></button>
+            <button class="navbuttons navbutton3" onclick="location.href='<?php echo e(route('displaySales')); ?>'">Display Sales Record</a></button>
+            <button class="navbuttons navbutton4" onclick="location.href='<?php echo e(route('addInventory')); ?>'">Add/Remove Inventory</a></button>
+            <button class="navbuttons navbutton5" onclick="location.href='<?php echo e(route('displayInventory')); ?>'">Display Inventory</a></button>
             </div>
 
         </div>

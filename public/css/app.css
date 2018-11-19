@@ -20973,6 +20973,26 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px white;
 }
 
+#salesRecord {
+  background: var(--orange) !important;
+}
+
+#editRecord {
+  background: var(--cyan) !important;
+}
+
+#displaySales {
+  background: var(--neon) !important;
+}
+
+#inventoryRecord {
+  background: var(--purple) !important;
+}
+
+#displayInventory {
+  background: var(--yellow);
+}
+
 .navbuttons {
   border: none;
   color: white;
@@ -20995,8 +21015,8 @@ a.text-dark:focus {
 }
 
 .navbutton1:hover {
-    background-color: #FF69B4;
-    color: white;
+  background-color: #FF69B4;
+  color: white;
 }
 
 .navbutton2 {
@@ -21020,7 +21040,6 @@ a.text-dark:focus {
   background-color: #00FA9A;
   color: white;
 }
-
 
 .navbutton4 {
   background-color: white;
@@ -21048,22 +21067,3 @@ a.text-dark:focus {
   text-align: center;
 }
 
-#salesRecord {
-  background: var(--orange) !important;
-}
-
-#editRecord {
-  background: var(--cyan) !important;
-}
-
-#displaySales {
-  background: var(--neon) !important;
-}
-
-#inventoryRecord {
-  background: var(--purple) !important;
-}
-
-#displayInventory {
-  background: var(--yellow);
-}

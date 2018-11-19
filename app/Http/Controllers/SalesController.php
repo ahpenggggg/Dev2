@@ -19,7 +19,7 @@ class SalesController extends Controller
     // $sales->itemID = Input::get('itemID[]');
     // $sales->save();
 
-    foreach (Input::get('itemID') as $itemID) {
+    foreach ($req->input('itemID') as $itemID) {
     $sales = new Sales;
     $sales->itemID = $itemID;
     $sales->save();

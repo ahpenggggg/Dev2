@@ -10503,3 +10503,67 @@ a.text-dark:focus {
 #displayInventory {
   background: var(--yellow) ;
 }
+
+
+.navbuttons {
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+ .navbutton1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #FF69B4;
+}
+ .navbutton1:hover {
+    background-color: #FF69B4;
+    color: white;
+}
+ .navbutton2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4169E1;
+}
+ .navbutton2:hover {
+  background-color: #4169E1;
+  color: white;
+}
+ .navbutton3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #00FA9A;
+}
+ .navbutton3:hover {
+  background-color: #00FA9A;
+  color: white;
+}
+ .navbutton4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #8A2BE2;
+}
+ .navbutton4:hover {
+  background-color: #8A2BE2;
+  color: white;
+}
+ .navbutton5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #DAA520;
+}
+ .navbutton5:hover {
+  background-color: #DAA520;
+  color: white;
+}
+ .wrapper {
+  text-align: center;
+}

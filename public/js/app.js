@@ -47755,13 +47755,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      inventories: [{
-        invID: '',
-        invName: '',
-        invPrice: '',
-        invAmt: '',
-        invDesc: ''
-      }],
+      inventories: [{ invID: '' }],
+      invenName: [{ invName: '' }],
+      invenPrice: [{ invPrice: '' }],
+      invenAmount: [{ invAmt: '' }],
+      invenDesc: [{ invDesc: '' }],
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
@@ -47844,7 +47842,7 @@ var render = function() {
                         staticClass: "form-control col-xs-3",
                         attrs: {
                           placeholder: "Inventory Name",
-                          name: "inventoryName",
+                          name: "inventoryName[]",
                           maxlength: "25"
                         },
                         domProps: { value: inventory.invName },
@@ -47864,23 +47862,23 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: inventory.itemID,
-                              expression: "inventory.itemID"
+                              value: inventory.invID,
+                              expression: "inventory.invID"
                             }
                           ],
                           staticClass: "form-control mt-2 col",
                           attrs: {
                             placeholder: "Inventory ID",
-                            name: "itemID",
+                            name: "itemID[]",
                             maxlength: "12"
                           },
-                          domProps: { value: inventory.itemID },
+                          domProps: { value: inventory.invID },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(inventory, "itemID", $event.target.value)
+                              _vm.$set(inventory, "invID", $event.target.value)
                             }
                           }
                         }),
@@ -47897,7 +47895,7 @@ var render = function() {
                           staticClass: "form-control mt-2 ml-1 col-lg-1",
                           attrs: {
                             placeholder: "Price",
-                            name: "inventoryPrice",
+                            name: "inventoryPrice[]",
                             maxlength: "7"
                           },
                           domProps: { value: inventory.invPrice },
@@ -47926,7 +47924,7 @@ var render = function() {
                           ],
                           staticClass: "form-control mt-2 ml-1 col-lg-1",
                           attrs: {
-                            name: "inventoryAmount",
+                            name: "inventoryAmount[]",
                             placeholder: "Amount",
                             maxlength: "4"
                           },
@@ -47953,7 +47951,7 @@ var render = function() {
                         ],
                         staticClass: "form-control col-xs-3 mt-2",
                         attrs: {
-                          name: "inventoryDesc",
+                          name: "inventoryDesc[]",
                           rows: "2",
                           placeholder: "Description"
                         },

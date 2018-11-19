@@ -9,6 +9,17 @@
 
     <title><?php echo e(config('SRePS', 'SRePS')); ?></title>
 
+    <!--Edited Styles -->
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <style>
+        body{
+          background-color: #0d0d0d;
+        }
+        navbar-nav{
+          padding: 50px;
+        }
+    </style>
+
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
