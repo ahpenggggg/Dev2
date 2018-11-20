@@ -10476,7 +10476,7 @@ a.text-dark:focus {
   --cyan: #00ffd2;
   --neon: #98ff00;
   --white: #fff;
-  --gray: #6c757d;
+  --gray: #d3d3d3;
   --gray-dark: #343a40;
   --primary: #3490dc;
   --secondary: #6c757d;
@@ -10536,7 +10536,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #0d0d0d;
 }
 
 [tabindex="-1"]:focus {
@@ -10693,7 +10693,7 @@ svg {
 }
 
 table {
-  border-collapse: collapse;
+  border: 1px solid black;
 }
 
 caption {
@@ -10705,7 +10705,15 @@ caption {
 }
 
 th {
+  border: 1px solid black;
   text-align: inherit;
+  font-size: 16px;
+  padding: 6px;
+}
+
+td {
+  padding: 6px;
+  border: 1px solid black;
 }
 
 label {

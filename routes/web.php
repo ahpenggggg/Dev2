@@ -37,4 +37,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('items', 'ExportController@index');
 Route::get('items/export', 'ExportController@export');
 
-// Route::get()
+Route::post('retrieveInv', 'InventoriesController@retrieveInv');
+Route::post('retrieveSales', 'SalesController@retrieveSales');

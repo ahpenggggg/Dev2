@@ -24,8 +24,12 @@ class SalesController extends Controller
       $sales->save();
     };
 
-    dd($req->all());
+    // dd($req->all());
 
-    // return view('pages.displaySales');
+    return redirect()->action('pagesController@dSales');
+  }
+
+  public function retrieveSales(){
+    return Sales::all();
   }
 }

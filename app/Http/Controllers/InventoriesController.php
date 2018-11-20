@@ -71,7 +71,11 @@ class InventoriesController extends Controller
 
         // dd($req->all());
 
-        return view('pages/displayInventory');
+        return redirect()->action('pagesController@displayInventory');
+    }
+
+    public function retrieveInv() {
+      return Inventory::all();
     }
 
     /**
