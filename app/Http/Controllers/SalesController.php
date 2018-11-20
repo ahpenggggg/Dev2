@@ -12,19 +12,20 @@ class SalesController extends Controller
   public function store(Request $req) {
 
     $req->validate([
+      'itemQty' => 'required',
       'itemID' => 'required',
     ]);
-    //
-    // $sales = new Sales;
-    // $sales->itemID = Input::get('itemID[]');
-    // $sales->save();
 
-    foreach ($req->input('itemID') as $itemID) {
-    $sales = new Sales;
-    $sales->itemID = $itemID;
-    $sales->save();
-    }
 
-    return view('pages.displaySales');
+    for ($i=0; $i < count($req['itemQty']) ; $i++ ) {
+      $sales = new Sales;
+      $sales->itemQty  = $req['itemQty'][$i];
+      $sales->itemID = $req['itemID'][$i];
+      $sales->save();
+    };
+
+    dd($req->all());
+
+    // return view('pages.displaySales');
   }
 }

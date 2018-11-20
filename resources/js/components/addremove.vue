@@ -15,7 +15,9 @@
 
                     <div class="form-inline" v-for="(item, index) of items">
 
-                      <input class="form-control mt-2 col-5" placeholder="Item ID" name="itemID[]" maxlength="12"  v-model="item.id">
+                      <input class="form-control mt-2 col" placeholder="Item ID" name="itemID[]" maxlength="12"  v-model="item.id">
+
+                      <input type="number" min="1" class="form-control mt-2 col-lg-2 ml-1" placeholder="Quantity" name="itemQty[]" v-model="item.invQty">
 
                       <button class="btn btn-success ml-1 mr-1 mt-2" @click.prevent="deleteSales(index)">
                         -
@@ -38,7 +40,8 @@
     data () {
         return {
         csrf: null,
-        items: [{id:''}]
+        items: [{id:''}],
+        quantity: [{invQty:''}]
       }
     },
     mounted(){

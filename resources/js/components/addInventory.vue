@@ -25,7 +25,7 @@
 
                       <input class="form-control mt-2 ml-1 col-lg-1" placeholder="Price" name="inventoryPrice[]" maxlength="7" v-model="inventory.invPrice">
 
-                      <input class="form-control mt-2 ml-1 col-lg-1" name="inventoryAmount[]" placeholder="Amount" maxlength="4" v-model="inventory.invAmt">
+                      <input type="number" min="1" class="form-control mt-2 ml-1 col-lg-2" name="inventoryAmount[]" placeholder="Amount" maxlength="4" v-model="inventory.invAmt">
                     </div>
 
                     <textarea class="form-control col-xs-3 mt-2" name="inventoryDesc[]" rows="2" placeholder="Description" v-model="inventory.invDesc"></textarea>
@@ -45,7 +45,6 @@
 
         </div>
       </div>
-
 
     </div>
 

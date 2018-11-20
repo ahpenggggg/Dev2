@@ -69,7 +69,9 @@ class InventoriesController extends Controller
         // $inventories = new Inventory($req->all());
         // $inventories->save()->all();
 
-        dd($req->all());
+        // dd($req->all());
+
+        return view('pages/displayInventory');
     }
 
     /**

@@ -94,7 +94,7 @@
 
         <main class="py-4">
             @yield('content')
-
+            <disp-inventory></disp-inventory>
         </main>
     </div>
 
