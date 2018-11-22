@@ -15,8 +15,13 @@
 
           <!--Inventory field-->
 
-          <div class="card mb-1" >
-            <div class="card-body" v-for="inv in inventories">
+          <div class="card m-2" v-for="(inv, index) in inventories" :key="inv.id">
+            <div class="card-body">
+              <div class="card-title ml-1">
+                <h5 class="float-left">Inventory # {{index + 1}}</h5>
+                <button class="btn btn-danger float-right ml-2" type="button" name="deleteInventory" v-on:click="delInvRec(inv.id, index)">Delete</button>
+                <button class="btn btn-primary float-right mb-2" type="button" name="editInventory">Edit</button>
+              </div>
               <table style="width:100%">
                   <thead>
                     <tr>
@@ -59,8 +64,15 @@ export default {
       }
     },
       mounted() {
-        axios.post('/retrieveInv').
-        then((response) => this.inventories = response.data )
+        axios.post('/retrieveInv').then((response) => this.inventories = response.data )
+      },
+      methods: {
+        delInvRec(id, index){
+          if (confirm("Are you sure to delete this inventory?")) {
+            axios.delete('/deleteInventory/' + id).then((response) => alert('Deleted'))
+            axios.post('/retrieveInv').then((response) => this.inventories = response.data )
+          }
+        }
       }
   }
 </script>

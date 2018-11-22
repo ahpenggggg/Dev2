@@ -20,16 +20,13 @@ Route::get('/pages/editRecord', 'pagesController@edit')->name('editRecord');
 Route::get('/pages/displaySales', 'pagesController@dSales')->name('displaySales');
 Route::get('/pages/addInventory', 'pagesController@addInventory')->name('addInventory');
 Route::get('/pages/displayInventory', 'pagesController@displayInventory')->name('displayInventory');
-
+Route::get('/pages/editSales', 'pagesController@editSales')->name('editSales');
 
 Route::resource('pages', 'pagesController');
 
 Route::resource('Sales', 'SalesController');
 
-// Route::get('inventories', 'InventoriesController@create');
-// Route::post('inventories', 'InventoriesController@store');
 Route::resource('inventories', 'InventoriesController');
-
 
 Auth::routes();
 
@@ -39,3 +36,5 @@ Route::get('items/export', 'ExportController@export');
 
 Route::post('retrieveInv', 'InventoriesController@retrieveInv');
 Route::post('retrieveSales', 'SalesController@retrieveSales');
+Route::delete('deleteSales/{id}', 'SalesController@deleteSales');
+Route::delete('deleteInventory/{id}', 'InventoriesController@deleteInventory');

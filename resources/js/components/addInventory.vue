@@ -15,7 +15,7 @@
                   <div class="form-group"v-for="(inventory, index) of inventories">
                     <div class="card-title ml-1">
                       <h5 class="float-left">Inventory #{{index + 1}}</h5>
-                      <button class="btn btn-succes float-right mb-3" type="button" name="removeItem" @click="deleteInventory">x</button>
+                      <button class="btn btn-succes float-right mb-3" type="button" name="removeItem" v-on:click="deleteInventory">x</button>
                     </div>
 
                     <input class="form-control col-xs-3" placeholder="Inventory Name" name="inventoryName[]" maxlength="25" v-model="inventory.invName">

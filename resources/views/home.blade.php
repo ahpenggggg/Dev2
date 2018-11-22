@@ -30,11 +30,10 @@
             </div -->
 
             <div class="wrapper">
-            <button class="navbuttons navbutton1" onclick="location.href='{{route('addItem')}}'">Add/Remove Sales Record</a></button>
-            <button class="navbuttons navbutton2" onclick="location.href='{{route('editRecord')}}'">Edit Sales Record</a></button>
-            <button class="navbuttons navbutton3" onclick="location.href='{{route('displaySales')}}'">Display Sales Record</a></button>
-            <button class="navbuttons navbutton4" onclick="location.href='{{route('addInventory')}}'">Add/Remove Inventory</a></button>
-            <button class="navbuttons navbutton5" onclick="location.href='{{route('displayInventory')}}'">Display Inventory</a></button>
+            <button class="navbuttons navbutton1" onclick="location.href='{{route('addItem')}}'">Add Sales Record</a></button>
+            <button class="navbuttons navbutton2" onclick="location.href='{{route('displaySales')}}'">Display/Edit Sales Record</a></button>
+            <button class="navbuttons navbutton3" onclick="location.href='{{route('addInventory')}}'">Add Inventory</a></button>
+            <button class="navbuttons navbutton4" onclick="location.href='{{route('displayInventory')}}'">Display/Edit Inventory</a></button>
             </div>
 
         </div>

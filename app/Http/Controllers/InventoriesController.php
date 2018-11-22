@@ -9,32 +9,7 @@ use Illuminate\Support\Facades\Input;
 
 class InventoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $req)
     {
           $req->validate([
@@ -55,22 +30,7 @@ class InventoriesController extends Controller
           $inventories->save();
         };
 
-        // foreach ($req->all() as $all) {
-        // $inventories = new Inventory;
-        // // dd($req->all());
-        // $inventories->itemID = $req['itemID[]'];
-        // $inventories->inventoryName = $req['inventoryName[]'];
-        // $inventories->inventoryPrice = $req['inventoryPrice[]'];
-        // $inventories->inventoryDesc = $req['inventoryDesc[]'];
-        // $inventories->inventoryAmount = $req['inventoryAmount[]'];
-        // $inventories->save();
-        // }
-
-        // $inventories = new Inventory($req->all());
-        // $inventories->save()->all();
-
         // dd($req->all());
-
         return redirect()->action('pagesController@displayInventory');
     }
 
@@ -78,48 +38,10 @@ class InventoriesController extends Controller
       return Inventory::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function deleteInventory(Request $req, $id){
+      $inventories = Inventory::find($id);
+      $inventories->delete();
+      return redirect()->action('pagesController@displayInventory');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

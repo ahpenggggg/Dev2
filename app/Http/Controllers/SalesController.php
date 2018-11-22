@@ -25,11 +25,24 @@ class SalesController extends Controller
     };
 
     // dd($req->all());
-
     return redirect()->action('pagesController@dSales');
   }
 
   public function retrieveSales(){
     return Sales::all();
   }
+
+  public function deleteSales(Request $req, $id) {
+    $sales = Sales::find($id);
+    $sales->delete();
+    return redirect()->action('pagesController@dSales');
+  }
+
+  public function editSales(){
+    $sales = Sales::find($id);
+    $sales->update();
+    return redirect()->action('SalesController@editSales');
+  }
+
+  
 }

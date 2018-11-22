@@ -9,7 +9,7 @@
 
     <title>{{ config('SRePS', 'SRePS') }}</title>
 
-    <!-- Edited Styles -->
+    <!--Edited Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body{
@@ -28,6 +28,17 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+          background-color: #0d0d0d;
+        }
+        navbar-nav{
+          padding: 50px;
+        }
+    </style>
 
 </head>
 <body>
@@ -83,7 +94,7 @@
 
         <main class="py-4">
             @yield('content')
-
+            <edit-sales></edit-sales>
         </main>
     </div>
 

@@ -5,10 +5,15 @@
         <div class="card card-default">
           <div class="card-header">Sales Record</div>
 
-          <div class="card mb-2">
+          <div class="card m-2" v-for="(sale, index) in sales" :key="sale.id">
             <!-- <date-picker v-model="date" :config="options"></date-picker> -->
 
-            <div class="card-body" v-for="sale in sales">
+            <div class="card-body">
+              <div class="card-title ml-1">
+                <h5 class="float-left mt-2">Sale #{{index + 1}}</h5>
+                <button class="btn btn-danger float-right ml-2" type="button" name="deleteSales" v-on:click="delSalesRec(sale.id, index)">Delete</button>
+                <button class="btn btn-primary float-right mb-2" type="button" name="editSales" v-on:click="editSalesRec">Edit</button>
+              </div>
               <table style="width:100%" >
                   <tr>
                     <th width="20%">Date:</th>
@@ -20,7 +25,7 @@
                   </tr>
                   <tr>
                     <th width="20%">Item Name:</th>
-                    <td>sd</td>
+                    <td>asdasd</td>
                   </tr>
                   <tr>
                     <th width="20%">Quantity:</th>
@@ -47,24 +52,19 @@ export default {
         sales:[],
       }
     },
-      mounted() {
-        axios.post('/retrieveSales').
-        then((response) => this.sales = response.data )
+  mounted() {
+      axios.post('/retrieveSales').then((response) => this.sales = response.data )
+    },
+    methods: {
+      delSalesRec(id, index){
+         if (confirm("Are you sure to delete this record?")) {
+          axios.delete('/deleteSales/' + id).then((response) => alert('Deleted'))
+          axios.post('/retrieveSales').then((response) => this.sales = response.data )
+         }
+      },
+      editSalesRec(){
+        window.location.href = 'editSales'
       }
+    }
   }
-
-// import datePicker from 'vue-bootstrap-datetimepicker';
-//
-// import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
-//
-// export default {
-//   data () {
-//     return {
-//
-//     }
-//   },
-//   components: {
-//     datePicker
-//   }
-// }
 </script>

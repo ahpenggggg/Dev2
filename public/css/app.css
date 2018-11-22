@@ -10512,7 +10512,7 @@ html {
 }
 
 @-ms-viewport {
-  width: device-width;
+  width: device-wid;
 }
 
 article,
@@ -10707,7 +10707,7 @@ caption {
 th {
   border: 1px solid black;
   text-align: inherit;
-  font-size: 16px;
+  font-size: 14px;
   padding: 6px;
 }
 
@@ -10723,6 +10723,7 @@ label {
 
 button {
   border-radius: 0;
+  display: inline-block;
 }
 
 button:focus {
@@ -12394,6 +12395,7 @@ pre code {
 
 .table th,
 .table td {
+  position: relative;
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
@@ -21004,12 +21006,11 @@ a.text-dark:focus {
 .navbuttons {
   border: none;
   color: white;
-  padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 4px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -21017,9 +21018,12 @@ a.text-dark:focus {
 }
 
 .navbutton1 {
+  width: 75%;
+  height: 15%;
   background-color: white;
   color: black;
   border: 2px solid #FF69B4;
+  float: left;
 }
 
 .navbutton1:hover {
@@ -21028,9 +21032,12 @@ a.text-dark:focus {
 }
 
 .navbutton2 {
+  width: 75%;
+  height: 15%;
   background-color: white;
   color: black;
   border: 2px solid #4169E1;
+  float: right;
 }
 
 .navbutton2:hover {
@@ -21039,9 +21046,12 @@ a.text-dark:focus {
 }
 
 .navbutton3 {
+  width: 75%;
+  height: 15%;
   background-color: white;
   color: black;
   border: 2px solid #00FA9A;
+  float: left;
 }
 
 .navbutton3:hover {
@@ -21050,9 +21060,12 @@ a.text-dark:focus {
 }
 
 .navbutton4 {
+  width: 75%;
+  height: 15%;
   background-color: white;
   color: black;
   border: 2px solid #8A2BE2;
+  float: right;
 }
 
 .navbutton4:hover {
@@ -21060,18 +21073,11 @@ a.text-dark:focus {
   color: white;
 }
 
-.navbutton5 {
-  background-color: white;
-  color: black;
-  border: 2px solid #DAA520;
-}
-
-.navbutton5:hover {
-  background-color: #DAA520;
-  color: white;
-}
-
 .wrapper {
   text-align: center;
+}
+
+input {
+  width: 100%;
 }
 

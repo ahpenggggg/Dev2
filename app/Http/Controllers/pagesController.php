@@ -26,5 +26,9 @@ class pagesController extends Controller
       return view('pages.displayInventory');
   }
 
+  public function editSales(){
+      return view('pages.editSales');
+  }
+
 
 }
