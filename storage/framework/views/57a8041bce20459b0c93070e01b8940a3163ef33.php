@@ -9,7 +9,7 @@
 
     <title><?php echo e(config('SRePS', 'SRePS')); ?></title>
 
-    <!-- Edited Styles -->
+    <!--Edited Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <style>
         body{
@@ -96,7 +96,7 @@
 
         <main class="py-4">
             <?php echo $__env->yieldContent('content'); ?>
-
+            <disp-sales></disp-sales>
         </main>
     </div>
 

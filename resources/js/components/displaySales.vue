@@ -33,7 +33,7 @@
                   </tr>
               </table>
             </div>
-
+              <a href="/export/csv" class="btn btn-primary">Export to .csv</a>
           </div>
 
         </div>

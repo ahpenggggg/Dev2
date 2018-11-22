@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ExportController@index');
+Route::get('/export/{type}', 'ExportController@export');
 
 Route::get('/pages/addItem', 'pagesController@item')->name('addItem');
 Route::get('/pages/editRecord', 'pagesController@edit')->name('editRecord');
