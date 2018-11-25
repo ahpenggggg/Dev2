@@ -43,6 +43,4 @@ class SalesController extends Controller
     $sales->update();
     return redirect()->action('SalesController@editSales');
   }
-
-  
 }

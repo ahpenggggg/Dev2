@@ -43,5 +43,4 @@ class InventoriesController extends Controller
       $inventories->delete();
       return redirect()->action('pagesController@displayInventory');
     }
-
 }

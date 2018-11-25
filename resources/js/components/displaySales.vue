@@ -25,7 +25,7 @@
                   </tr>
                   <tr>
                     <th width="20%">Item Name:</th>
-                    <td>asdasd</td>
+                    <td>{{ sale.itemName }}</td>
                   </tr>
                   <tr>
                     <th width="20%">Quantity:</th>
@@ -33,9 +33,9 @@
                   </tr>
               </table>
             </div>
-              <a href="/export/csv" class="btn btn-primary">Export to .csv</a>
-          </div>
 
+          </div>
+            <a href="/export/csv" class="btn btn-primary">Export to .csv</a>
         </div>
       </div>
 

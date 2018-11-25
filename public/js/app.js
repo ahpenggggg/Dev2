@@ -48237,7 +48237,13 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(sale.itemID))])
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _c("tr", [
+                      _c("th", { attrs: { width: "20%" } }, [
+                        _vm._v("Item Name:")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(sale.itemName))])
+                    ]),
                     _vm._v(" "),
                     _c("tr", [
                       _c("th", { attrs: { width: "20%" } }, [
@@ -48247,18 +48253,18 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(sale.itemQty))])
                     ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: "/export/csv" }
-                  },
-                  [_vm._v("Export to .csv")]
-                )
+                ])
               ])
-            })
+            }),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { href: "/export/csv" }
+              },
+              [_vm._v("Export to .csv")]
+            )
           ],
           2
         )
@@ -48275,16 +48281,6 @@ var staticRenderFns = [
       _c("th", { attrs: { width: "20%" } }, [_vm._v("Date:")]),
       _vm._v(" "),
       _c("td", [_vm._v("N/A")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", { attrs: { width: "20%" } }, [_vm._v("Item Name:")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("asdasd")])
     ])
   }
 ]

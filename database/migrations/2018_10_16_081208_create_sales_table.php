@@ -18,8 +18,6 @@ class CreateSalesTable extends Migration
             $table->increments('id');
             $table->string('itemID');
             $table->integer('itemQty');
-            // $table->string('description');
-            // $table->string('price');
             $table->timestamps();
         });
     }
