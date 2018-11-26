@@ -11,8 +11,17 @@
 |
 */
 
-Route::get('/', 'ExportController@index');
-Route::get('/export/{type}', 'ExportController@export');
+//Route::get('/', 'ExportController@index');
+//Route::get('/export/{type}', 'ExportController@export');
+Route::get('/export/{type}', function () {
+
+	$sales = \App\Sales::all();
+
+	$csvExporter = new \Laracsv\Export();
+
+	return $csvExporter->build($sales, ['id', 'itemID', 'itemName','itemQty','created_at','updated_at'])->download('SalesRecord.csv');
+
+});
 
 Route::get('/pages/addItem', 'pagesController@item')->name('addItem');
 Route::get('/pages/editRecord', 'pagesController@edit')->name('editRecord');
