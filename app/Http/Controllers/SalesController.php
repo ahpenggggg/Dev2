@@ -24,25 +24,32 @@ class SalesController extends Controller
       $sales->save();
     };
 
-    // dd($req->all());
     return redirect()->action('pagesController@dSales');
+    // dd($req->all());
+    // return view('pages.displaySales');
   }
 
-  public function retrieveSales(){
+  public function show(){
     return Sales::all();
   }
 
-  public function deleteSales(Request $req, $id) {
+  public function destroy(Request $req, $id) {
     $sales = Sales::find($id);
     $sales->delete();
     return redirect()->action('pagesController@dSales');
   }
 
-  public function editSales(){
-    $sales = Sales::find($id);
-    $sales->update();
-    return redirect()->action('SalesController@editSales');
-  }
+  public function update(Request $req, $id){
+    $req->validate([
+      'itemQty' => 'required',
+      'itemID' => 'required',
+    ]);
 
-  
+    $sales = Sales::find($id);
+    $sales->update($req->all());
+    // $sales->itemQty  = $req->itemQty;
+    // $sales->itemID = $req->itemID;
+    // return redirect()->action('pagesController@dSales');
+    // dd($req->all($id));
+  }
 }

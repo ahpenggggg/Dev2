@@ -34,14 +34,27 @@ class InventoriesController extends Controller
         return redirect()->action('pagesController@displayInventory');
     }
 
-    public function retrieveInv() {
+    public function show() {
       return Inventory::all();
     }
 
-    public function deleteInventory(Request $req, $id){
+    public function destroy(Request $req, $id){
       $inventories = Inventory::find($id);
       $inventories->delete();
       return redirect()->action('pagesController@displayInventory');
     }
 
+    public function update(Request $req, $id){
+      $req->validate([
+        'inventoryName' => 'required',
+        'itemID' => 'required',
+        'inventoryPrice' => 'required',
+        'inventoryDesc' => 'required',
+        'inventoryAmount' => 'required',
+      ]);
+
+      $inventories = Inventory::find($id);
+      $inventories->save($req->all());
+
+    }
 }
