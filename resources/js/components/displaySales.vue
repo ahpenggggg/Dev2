@@ -47,7 +47,31 @@
                 </div>
               <!-- </form> -->
               </div>
+<<<<<<< HEAD
+=======
+              <table style="width:100%" >
+                  <tr>
+                    <th width="20%">Date:</th>
+                    <td>{{sale.itemDate}}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%">Item ID:</th>
+                    <td>{{ sale.itemID }}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%">Item Name:</th>
+                    <td>{{ sale.itemName }}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%">Quantity:</th>
+                    <td>{{ sale.itemQty }}</td>
+                  </tr>
+              </table>
+            </div>
+>>>>>>> a5147b157e445673d4129b859b6ba0706d4a655f
 
+          </div>
+            <a href="/export/csv" class="btn btn-primary">Export to .csv</a>
         </div>
       </div>
 

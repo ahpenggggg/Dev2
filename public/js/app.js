@@ -48152,6 +48152,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -48394,11 +48418,46 @@ var render = function() {
                   ])
                 ])
               ])
-            })
+            }),
+            _vm._v("\n<<<<<<< HEAD\n=======\n              "),
+            _c("table", { staticStyle: { width: "100%" } }, [
+              _c("tr", [
+                _c("th", { attrs: { width: "20%" } }, [_vm._v("Date:")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.sale.itemDate))])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("th", { attrs: { width: "20%" } }, [_vm._v("Item ID:")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.sale.itemID))])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("th", { attrs: { width: "20%" } }, [_vm._v("Item Name:")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.sale.itemName))])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("th", { attrs: { width: "20%" } }, [_vm._v("Quantity:")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.sale.itemQty))])
+              ])
+            ])
           ],
           2
+        ),
+        _vm._v(
+          "\n>>>>>>> a5147b157e445673d4129b859b6ba0706d4a655f\n\n          "
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-primary", attrs: { href: "/export/csv" } },
+        [_vm._v("Export to .csv")]
+      )
     ])
   ])
 }
