@@ -22,7 +22,7 @@
                   <table style="width:100%" >
                       <tr>
                         <th width="20%">Date:</th>
-                        <td>N/A</td>
+                        <td>{{sales.created_at}}</td>
                       </tr>
                       <tr>
                         <th width="20%">Item ID:</th>
