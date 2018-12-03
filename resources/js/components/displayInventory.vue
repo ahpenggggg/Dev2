@@ -40,7 +40,7 @@
                           <input type="text" v-model="editForm.itemID" v-if="edit">
                           <span v-else>{{inv.itemID}}</span>
                         </td>
-                        <th width="10%">Cost:</th>
+                        <th width="11%">Cost:</th>
                         <td width="23%">
                           <input type="text" v-model="editForm.inventoryPrice" v-if="edit">
                           <span v-else>{{inv.inventoryPrice}}</span>
@@ -50,6 +50,12 @@
                           <input type="text" v-model="editForm.inventoryAmount" v-if="edit">
                           <span v-else>{{inv.inventoryAmount}}</span>
                         </td>
+                      </tr>
+                      <tr>
+                        <th>Created on:</th>
+                        <td>{{ inv.created_at}}</td>
+                        <th>Updated on:</th>
+                        <td colspan="3">{{ inv.updated_at }}</td>
                       </tr>
                       <tr>
                         <th colspan="6">Description:</th>

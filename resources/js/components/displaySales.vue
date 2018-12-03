@@ -12,7 +12,7 @@
                     <h5 class="float-left mt-2">Sale #{{index + 1}}</h5>
                     <button class="btn btn-danger float-right ml-2" type="button" name="deleteSales" v-on:click="delSalesRec(sale.id, index)">Delete</button>
 
-                    <button class="btn btn-primary float-right mb-2" type="button" name="editSales" v-on:click="editSalesRec()" v-if="!edit">Edit</button>
+                    <button class="btn btn-primary float-right mb-2" type="button" name="editSales" v-on:click="editSalesRec(sale, index)" v-if="!edit">Edit</button>
 
                     <button class="btn btn-success float-right mb-2" type="button" name="updateSales" v-on:click="updateSalesRec(sale)" v-if="edit">Save</button>
 
@@ -22,7 +22,7 @@
                   <table style="width:100%" >
                       <tr>
                         <th width="20%">Date:</th>
-                        <td>N/A</td>
+                        <td>{{ sale.created_at}}</td>
                       </tr>
                       <tr>
                         <th width="20%">Item ID:</th>
@@ -47,36 +47,10 @@
                 </div>
               <!-- </form> -->
               </div>
-<<<<<<< HEAD
-=======
-              <table style="width:100%" >
-                  <tr>
-                    <th width="20%">Date:</th>
-                    <td>{{sale.itemDate}}</td>
-                  </tr>
-                  <tr>
-                    <th width="20%">Item ID:</th>
-                    <td>{{ sale.itemID }}</td>
-                  </tr>
-                  <tr>
-                    <th width="20%">Item Name:</th>
-                    <td>{{ sale.itemName }}</td>
-                  </tr>
-                  <tr>
-                    <th width="20%">Quantity:</th>
-                    <td>{{ sale.itemQty }}</td>
-                  </tr>
-              </table>
-            </div>
->>>>>>> a5147b157e445673d4129b859b6ba0706d4a655f
 
-          </div>
-            <a href="/export/csv" class="btn btn-primary">Export to .csv</a>
         </div>
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -94,29 +68,29 @@ export default {
     },
   mounted(id) {
       this.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      axios.get('/Sales/' + id).then((response) => this.sales = response.data )
+      axios.get('/Sales/' + id).then((response) => this.sales = response.data)
     },
     methods: {
       delSalesRec(id){
          if (confirm("Are you sure to delete this record?")) {
           axios.delete('/Sales/' + id).then((response) => alert('Deleted'))
-          axios.get('/Sales/' + id).then((response) => this.sales = response.data )
+          axios.get('/Sales/' + id).then((response) => this.sales = response.data)
          }
       },
-      editSalesRec(){
+      editSalesRec(sales,id){
         // window.location.href = 'editSales'
-        this.edit = true
-        this.editForm.itemID=this.sales.itemID
-        this.editForm.itemQty=this.sales.itemQty
+          this.edit = true;
+
+          this.editForm.itemID=this.sales[id].itemID;
+          this.editForm.itemQty=this.sales[id].itemQty;
       },
-      updateSalesRec(sale){
+      updateSalesRec(sale, id){
         axios.put('/Sales/' + sale.id, {
           itemID: this.editForm.itemID,
           itemQty: this.editForm.itemQty
         }).then((response) => alert('Updated'))
         this.edit = false
-        axios.get('/Sales/' + id).then((response) => this.sales = response.data )
-        // window.location.href ='displaySales'
+        axios.get('/Sales/' + id).then((response) => this.sales = response.data)
       },
       cancelEditRec(){
         this.edit = false

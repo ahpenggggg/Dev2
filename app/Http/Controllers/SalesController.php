@@ -47,9 +47,10 @@ class SalesController extends Controller
 
     $sales = Sales::find($id);
     $sales->update($req->all());
+
+    // return redirect()->action('pagesController@dSales');
+
     // $sales->itemQty  = $req->itemQty;
     // $sales->itemID = $req->itemID;
-    // return redirect()->action('pagesController@dSales');
-    // dd($req->all($id));
   }
 }

@@ -54,7 +54,7 @@ class InventoriesController extends Controller
       ]);
 
       $inventories = Inventory::find($id);
-      $inventories->save($req->all());
-
+      $inventories->update($req->all());
+      // dd($req->all());
     }
 }

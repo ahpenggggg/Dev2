@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('/', 'ExportController@index');
+Route::get('/', 'ExportController@index');
 //Route::get('/export/{type}', 'ExportController@export');
 Route::get('/export/{type}', function () {
 

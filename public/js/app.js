@@ -377,6 +377,33 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -480,33 +507,6 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
 
 
 /***/ }),
@@ -3154,7 +3154,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -13990,7 +13990,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(63);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -31198,7 +31198,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)(module)))
 
 /***/ }),
 /* 16 */
@@ -47030,7 +47030,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
 
 /***/ }),
 /* 38 */
@@ -47100,7 +47100,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 39 */
@@ -47293,14 +47293,14 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(7)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
@@ -47419,7 +47419,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(44)
 /* template */
@@ -47681,7 +47681,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
@@ -48046,7 +48046,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(50)
 /* template */
@@ -48150,32 +48150,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -48209,13 +48183,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
       }
     },
-    editSalesRec: function editSalesRec() {
+    editSalesRec: function editSalesRec(sales, id) {
       // window.location.href = 'editSales'
       this.edit = true;
-      this.editForm.itemID = this.sales.itemID;
-      this.editForm.itemQty = this.sales.itemQty;
+
+      this.editForm.itemID = this.sales[id].itemID;
+      this.editForm.itemQty = this.sales[id].itemQty;
     },
-    updateSalesRec: function updateSalesRec(sale) {
+    updateSalesRec: function updateSalesRec(sale, id) {
       var _this3 = this;
 
       axios.put('/Sales/' + sale.id, {
@@ -48228,7 +48203,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.get('/Sales/' + id).then(function (response) {
         return _this3.sales = response.data;
       });
-      // window.location.href ='displaySales'
     },
     cancelEditRec: function cancelEditRec() {
       this.edit = false;
@@ -48299,7 +48273,7 @@ var render = function() {
                             attrs: { type: "button", name: "editSales" },
                             on: {
                               click: function($event) {
-                                _vm.editSalesRec()
+                                _vm.editSalesRec(sale, index)
                               }
                             }
                           },
@@ -48342,7 +48316,11 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("table", { staticStyle: { width: "100%" } }, [
-                    _vm._m(0, true),
+                    _c("tr", [
+                      _c("th", { attrs: { width: "20%" } }, [_vm._v("Date:")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(sale.created_at))])
+                    ]),
                     _vm._v(" "),
                     _c("tr", [
                       _c("th", { attrs: { width: "20%" } }, [
@@ -48379,7 +48357,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _vm._m(0, true),
                     _vm._v(" "),
                     _c("tr", [
                       _c("th", { attrs: { width: "20%" } }, [
@@ -48418,60 +48396,15 @@ var render = function() {
                   ])
                 ])
               ])
-            }),
-            _vm._v("\n<<<<<<< HEAD\n=======\n              "),
-            _c("table", { staticStyle: { width: "100%" } }, [
-              _c("tr", [
-                _c("th", { attrs: { width: "20%" } }, [_vm._v("Date:")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.sale.itemDate))])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { width: "20%" } }, [_vm._v("Item ID:")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.sale.itemID))])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { width: "20%" } }, [_vm._v("Item Name:")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.sale.itemName))])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { width: "20%" } }, [_vm._v("Quantity:")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.sale.itemQty))])
-              ])
-            ])
+            })
           ],
           2
-        ),
-        _vm._v(
-          "\n>>>>>>> a5147b157e445673d4129b859b6ba0706d4a655f\n\n          "
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "btn btn-primary", attrs: { href: "/export/csv" } },
-        [_vm._v("Export to .csv")]
-      )
+      ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", { attrs: { width: "20%" } }, [_vm._v("Date:")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("N/A")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -48501,7 +48434,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(53)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(58)
 /* template */
@@ -49009,6 +48942,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -49249,7 +49188,7 @@ var render = function() {
                             : _c("span", [_vm._v(_vm._s(inv.itemID))])
                         ]),
                         _vm._v(" "),
-                        _c("th", { attrs: { width: "10%" } }, [
+                        _c("th", { attrs: { width: "11%" } }, [
                           _vm._v("Cost:")
                         ]),
                         _vm._v(" "),
@@ -49320,6 +49259,18 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
+                      _c("tr", [
+                        _c("th", [_vm._v("Created on:")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(inv.created_at))]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Updated on:")]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { colspan: "3" } }, [
+                          _vm._v(_vm._s(inv.updated_at))
+                        ])
+                      ]),
+                      _vm._v(" "),
                       _vm._m(0, true)
                     ]),
                     _vm._v(" "),
@@ -49384,10 +49335,7 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */
+/* 60 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
